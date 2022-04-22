@@ -8,13 +8,17 @@ function TextChecker() {
   const [heading, setheading] = useState("")
 
   useEffect(() => {
+    // If there are no Values inside text areas
     if(first.length == 0 || second.length == 0){
       setheading("Type Something in both of these fields")
     }else if(first==second){
+      // If value of text area 1 is equal to text area 2
       setheading("Both fields are same")
     }else {
+      // If they don't match at all
       setheading("They don't Match")
     }
+    // Converts text area value to array first and then filter the empty spaces and then gives array length
     setwordOne(first.split(' ').filter(word=>word !== '').length)
     setwordTwo(second.split(' ').filter(word=>word !== '').length)
   }, [first,second])
